@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <PostForm />
-      <Posts />
+      <Posts posts={[1,2,3,4]}/>
       <FetchedPosts />
     </>
   );

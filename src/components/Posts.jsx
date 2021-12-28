@@ -1,11 +1,23 @@
 import React from 'react';
+import {connect} from 'redux'
+import Post from './Post'
 
-const Posts = () => {
+const Posts = ({posts}) => {
     return (
         <div>
-            Posts
+            {posts.map((post, key)=> <Post key={key} post={post} />)}
         </div>
     );
 };
 
-export default Posts;
+/*
+преобразование стора в удобный вид для компонента
+*/ 
+const mapStateToProps = state => {
+    console.log(state);
+    return {
+        syncPost: state.posts.posts
+    }
+}
+
+export default connect(mapStateToProps, null)(Posts);
